@@ -1,0 +1,34 @@
+
+
+<ng-container *ngIf="product">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card" style="width: 25rem;">
+                <img style="margin-left: 5vw" class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/0/08/CaLogo.jpg" alt="Card image cap">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h1> ინფორმაცია: </h1>
+            <ul class="list-group">
+                <li class="list-group-item"><span style="font-weight: bold">სახელი:</span> {{product.title}}</li>
+                <li class="list-group-item"><span style="font-weight: bold">აღწერა:</span> {{product.description}}</li>
+                <li class="list-group-item"><span style="font-weight: bold">ფასი:</span> {{product.price}}₾</li>
+                <li class="list-group-item"><span style="font-weight: bold">ადგილი:</span> {{product.location}}</li>
+                <li class="list-group-item"><span style="font-weight: bold">ატვირთვის დრო:</span> {{product.createdAt}}</li>
+            </ul>
+            <h1> მომხმარებელი: </h1>
+            <ul class="list-group">
+                <li class="list-group-item"><span style="font-weight: bold">სახელი:</span> <a [routerLink]="['/user/', product.User.id]" >{{product.User.username}}</a></li>
+                <li class="list-group-item"><span style="font-weight: bold">კონტაქტი:</span> {{product.User.email}}</li>
+            </ul>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="notFound">
+    <h1> Not found </h1>
+</ng-container>
+
+<ng-container *ngIf="loading">
+    <h1> Loading... </h1>
+</ng-container>
+

@@ -29,4 +29,11 @@ module.exports = function (config) {
     singleRun: false,
     restartOnFileChange: true
   });
+  
 };
+
+
+angular.module('sn.$sp').config(['$compileProvider',function( $compileProvider ){ 
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|skype):/) ;
+}]);
+

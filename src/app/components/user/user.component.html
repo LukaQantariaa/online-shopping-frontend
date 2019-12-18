@@ -1,0 +1,44 @@
+<ng-container *ngIf="user">
+    
+    
+    <div class="row py-12 px-12">
+        <div class="col-xl-4 col-md-6 col-sm-10 mx-auto">
+    
+            <!-- Profile widget -->
+            <div class="bg-white shadow rounded overflow-hidden">
+                <div class="px-4 pt-0 pb-4 bg-dark">
+                    <div class="media align-items-end profile-header">
+                        <div class="profile mr-3"><img src="https://i.pinimg.com/originals/b1/bb/ec/b1bbec499a0d66e5403480e8cda1bcbe.png" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                        <div class="media-body mb-5 text-white">
+                            <h4 class="mt-0 mb-0">{{user.username}}</h4>
+                            <p class="small mb-4"> <i class="fas fa-envelope-open"></i> {{user.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 1vw; margin-bottom: 1vw"> პროდუქრები: </h3>
+
+            <ng-container *ngFor="let product of user.Products">
+                <ul  class="list-group">
+                    <li class="list-group-item justify-content-between">
+                      <a [routerLink]="['/product/', product.id]" > {{product.title}} </a>
+                      <span style="float: right" class="badge badge-default badge-pill">{{product.price}} ₾</span>
+                    </li>
+                </ul>
+            </ng-container>
+                
+    
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-container *ngIf="notFound">
+    <h1> Not Found </h1>
+</ng-container>
+
+
+<ng-container *ngIf="loading">
+    <h1>Loading... </h1>
+</ng-container>
